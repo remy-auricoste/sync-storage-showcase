@@ -1,3 +1,4 @@
-<div ng-repeat="todo in todos">
+<div ng-repeat="todo in todos track by todo._id">
     <div d-todo todo="todo"></div>
 </div>
+<input type="button" value="Add" ng-click="add()">
