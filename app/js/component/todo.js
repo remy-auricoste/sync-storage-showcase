@@ -3,17 +3,10 @@
 /* import Storage */ var Storage = require('./../services/Storage');
 
 directives.addTemplate("todo", {
-    todo: "="
+    view: "="
 }, function($scope, attr, elem) {
     var saveTodo = function() {
-        Storage.promise.then(function() {
-            return Storage.save($scope.todo).then(function(result) {
-                console.log("result save=");
-                console.log(result);
-                $scope.todo = result;
-                $scope.$apply();
-            });
-        });
+        $scope.view.save();
     }
     $scope.onclick = function() {
         $scope.edited = true;
@@ -23,11 +16,11 @@ directives.addTemplate("todo", {
         saveTodo();
     }
     $scope.ondelete = function() {
-        $scope.todo.deleted = true;
+        $scope.view.todo.deleted = true;
         saveTodo();
     }
     $scope.oncheck = function() {
-        $scope.todo.done = !$scope.todo.done;
+        $scope.view.todo.done = !$scope.view.todo.done;
         saveTodo();
     }
 });

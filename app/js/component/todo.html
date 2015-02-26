@@ -1,6 +1,6 @@
-<div class="view" ng-if="!todo.deleted">
-    <input class="todo_checkbox" type="checkbox" ng-checked="todo.done" ng-click="oncheck()"/>
-    <label class="todo" ng-class="{done: todo.done}" ng-if="!edited" ng-click="onclick()">{{todo.title}}</label>
-    <input class="todo_edit" ng-if="edited" type="text" ng-model="todo.title" ng-blur="onblur()"/>
+<div class="view" ng-if="!view.todo.deleted">
+    <input class="todo_checkbox" type="checkbox" ng-checked="view.todo.done" ng-click="oncheck()"/>
+    <label class="todo" ng-class="{done: view.todo.done}" ng-if="!edited" ng-click="onclick()">{{view.todo.title}}</label>
+    <input class="todo_edit" ng-if="edited" type="text" ng-model="view.todo.title" ng-blur="onblur()"/>
     <input class="todo_delete" type="button" value="delete" ng-click="ondelete()"/>
 </div>
