@@ -7,4 +7,7 @@
 /* import SyncStorage */ var SyncStorage = window.SyncStorage;
 
 myApp.controller('home', ["$scope", function($scope) {
+    $scope.storage1 = Storage("todos");
+    $scope.storage2 = Storage("todos2");
+
 }])

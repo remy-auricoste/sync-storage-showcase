@@ -4,9 +4,9 @@
 /* import Todo */ var Todo = require('./../Todo');
 
 directives.addTemplate("todos", {
-    name: "@"
+    storage: "="
 }, function($scope, attr, elem) {
-    var storage = Storage($scope.name);
+    var storage = $scope.storage;
 
     var View = function(todo) {
         this.todo = todo;
