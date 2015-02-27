@@ -16,8 +16,6 @@ directives.addTemplate("todos", {
         var todo = self.todo;
         return storage.promise.then(function() {
             return storage.save(todo).then(function(result) {
-                console.log("result save=");
-                console.log(result);
                 self.todo = result;
                 $scope.$apply();
             });
@@ -32,8 +30,6 @@ directives.addTemplate("todos", {
     storage.promise.then(function() {
         var lastFilter = SyncStorage.query.Filter.value("_last", true);
         return storage.query(new SyncStorage.query.Query(null, [lastFilter])).then(function(result) {
-            console.log("test");
-            console.log(result);
             $scope.todos = result.rows;
             if (!($scope.todos && $scope.todos.length)) {
                 $scope.todos = Meta.map([1, 2, 3], function(num) {
@@ -43,11 +39,9 @@ directives.addTemplate("todos", {
                     storage.save(todo);
                 });
             }
-            console.log($scope.todos);
             $scope.views = Meta.map($scope.todos, function(todo) {
                 return new View(todo);
             });
-            console.log($scope.views);
             $scope.$apply();
         }).fail(function(err) {
             console.error(err + "");
