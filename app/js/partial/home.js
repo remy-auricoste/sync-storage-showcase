@@ -10,4 +10,13 @@ myApp.controller('home', ["$scope", function($scope) {
     $scope.storage1 = Storage("todos");
     $scope.storage2 = Storage("todos2");
 
+    $scope.onSync = function() {
+        $scope.storage1.syncWith($scope.storage2).then(function(result) {
+            console.log("sync success");
+            console.log(result);
+            $scope.$apply();
+        }).fail(function(err) {
+            console.error(err);
+        });
+    }
 }])
